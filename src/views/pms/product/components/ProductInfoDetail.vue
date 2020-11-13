@@ -2,10 +2,18 @@
   <div style="margin-top: 50px">
     <el-form :model="value" :rules="rules" ref="productInfoForm" label-width="120px" style="width: 600px" size="small">
       <el-form-item label="商品归属：" >
-        <el-cascader
+        <!-- <el-cascader
           v-model="selectProductCateValue"
           :options="productCateOptions">
-        </el-cascader>
+        </el-cascader> -->
+        <el-select v-model="selectProductCateValue" filterable placeholder="请选择">
+          <el-option
+            v-for="item in productCateOptions"
+            :key="item.value"
+            :label="item.label"
+            :value="item.value">
+          </el-option>
+        </el-select>
       </el-form-item>
       <el-form-item label="商品明细：" prop="name">
         <el-input v-model="value.name"></el-input>
@@ -39,12 +47,12 @@
         <el-input v-model="value.unit"></el-input>
       </el-form-item>
       <el-form-item label="物流单号："  prop="wuliu">
-        <el-input v-model="value.productSn"></el-input>
+        <el-input v-model="value.wuliu"></el-input>
       </el-form-item>
       <el-form-item label="商品串码：" prop="SNCode">
         <el-input
           :autoSize="true"
-          v-model="value.description"
+          v-model="value.SNCode"
           type="textarea"
           placeholder="默认扫最后一个码"></el-input>
       </el-form-item>
@@ -59,7 +67,8 @@
         <el-input v-model="value.sort"></el-input>
       </el-form-item> -->
       <el-form-item style="text-align: center">
-        <el-button type="primary" size="medium" @click="handleNext('productInfoForm')">下一步，填写商品促销</el-button>
+        <el-button type="" size="medium" >取消</el-button>
+        <el-button type="primary" size="medium" @click="handleNext('productInfoForm')">提交</el-button>
       </el-form-item>
     </el-form>
   </div>
