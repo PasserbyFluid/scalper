@@ -1,47 +1,19 @@
 <template> 
   <el-card class="form-container" shadow="never">
-    <!-- <el-steps :active="active" finish-status="success" align-center>
-      <el-step title="填写商品信息"></el-step>
-      <el-step title="填写商品促销"></el-step>
-      <el-step title="填写商品属性"></el-step>
-      <el-step title="选择商品关联"></el-step>
-    </el-steps> -->
     <div slot="header" class="clearfix">
       <span>添加商品</span>
-      <!-- <el-button style="float: right; padding: 3px 0" type="text">操作按钮</el-button> -->
     </div>
     <product-info-detail
       v-model="productParam"
       :is-edit="isEdit">
     </product-info-detail>
-    <!-- <product-sale-detail
-      v-show="showStatus[1]"
-      v-model="productParam"
-      :is-edit="isEdit"
-      @nextStep="nextStep"
-      @prevStep="prevStep">
-    </product-sale-detail>
-    <product-attr-detail
-      v-show="showStatus[2]"
-      v-model="productParam"
-      :is-edit="isEdit"
-      @nextStep="nextStep"
-      @prevStep="prevStep">
-    </product-attr-detail>
-    <product-relation-detail
-      v-show="showStatus[3]"
-      v-model="productParam"
-      :is-edit="isEdit"
-      @prevStep="prevStep"
-      @finishCommit="finishCommit">
-    </product-relation-detail> -->
   </el-card>
 </template>
 <script>
   import ProductInfoDetail from './ProductInfoDetail';
-  import ProductSaleDetail from './ProductSaleDetail';
-  import ProductAttrDetail from './ProductAttrDetail';
-  import ProductRelationDetail from './ProductRelationDetail';
+  // import ProductSaleDetail from './ProductSaleDetail';
+  // import ProductAttrDetail from './ProductAttrDetail';
+  // import ProductRelationDetail from './ProductRelationDetail';
   import {createProduct,getProduct,updateProduct} from '@/api/product';
 
   const defaultProductParam = {
@@ -107,7 +79,7 @@
   };
   export default {
     name: 'ProductDetail',
-    components: {ProductInfoDetail, ProductSaleDetail, ProductAttrDetail, ProductRelationDetail},
+    components: {ProductInfoDetail},
     props: {
       isEdit: {
         type: Boolean,
@@ -134,20 +106,20 @@
           this.showStatus[i] = false;
         }
       },
-      prevStep() {
-        if (this.active > 0 && this.active < this.showStatus.length) {
-          this.active--;
-          this.hideAll();
-          this.showStatus[this.active] = true;
-        }
-      },
-      nextStep() {
-        if (this.active < this.showStatus.length - 1) {
-          this.active++;
-          this.hideAll();
-          this.showStatus[this.active] = true;
-        }
-      },
+      // prevStep() {
+      //   if (this.active > 0 && this.active < this.showStatus.length) {
+      //     this.active--;
+      //     this.hideAll();
+      //     this.showStatus[this.active] = true;
+      //   }
+      // },
+      // nextStep() {
+      //   if (this.active < this.showStatus.length - 1) {
+      //     this.active++;
+      //     this.hideAll();
+      //     this.showStatus[this.active] = true;
+      //   }
+      // },
       finishCommit(isEdit) {
         this.$confirm('是否要提交该产品', '提示', {
           confirmButtonText: '确定',

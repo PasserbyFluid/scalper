@@ -46,8 +46,8 @@
       <el-form-item label="收货人名称：">
         <el-input v-model="value.unit"></el-input>
       </el-form-item>
-      <el-form-item label="物流单号："  prop="wuliu">
-        <el-input v-model="value.wuliu"></el-input>
+      <el-form-item label="物流单号："  prop="courier_Number">
+        <el-input v-model="value.courier_Number"></el-input>
       </el-form-item>
       <el-form-item label="商品串码：" prop="SNCode">
         <el-input
@@ -100,7 +100,7 @@
             {required: true, message: '请输入商品名称', trigger: 'blur'},
             {min: 2, max: 140, message: '长度在 2 到 140 个字符', trigger: 'blur'}
           ],
-          wuliu: [{required: true, message: '请输入物流单号', trigger: 'blur'}],
+          courier_Number: [{required: true, message: '请输入物流单号', trigger: 'blur'}],
           SNCode: [{required: true, message: '请输入串码、S/N码', trigger: 'blur'}],
           productCategoryId: [{required: true, message: '请选择商品分类', trigger: 'blur'}],
           brandId: [{required: true, message: '请选择商品品牌', trigger: 'blur'}],
