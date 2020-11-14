@@ -146,11 +146,11 @@
         <!-- <el-table-column label="排序" width="100" align="center">
           <template slot-scope="scope">{{scope.row.sort}}</template>
         </el-table-column> -->
-        <!-- <el-table-column label="SKU库存" width="100" align="center">
+        <el-table-column label="详细信息" width="100" align="center">
           <template slot-scope="scope">
-            <el-button type="primary" icon="el-icon-edit" @click="handleShowSkuEditDialog(scope.$index, scope.row)" circle></el-button>
+            <el-button type="primary" icon="el-icon-goods" title="查看详情" @click="handleShowSkuEditDialog(scope.$index, scope.row)" circle></el-button>
           </template>
-        </el-table-column> -->
+        </el-table-column>
         <el-table-column label="数量" width="100" align="center">
           <template slot-scope="scope">{{scope.row.sale}}</template>
         </el-table-column>
@@ -322,7 +322,7 @@
         },
         operates: [
           {
-            label: "商品上架",
+            label: "销售",
             value: "publishOn"
           },
           {
@@ -523,7 +523,8 @@
           }
           switch (this.operateType) {
             case this.operates[0].value:
-              this.updatePublishStatus(1,ids);
+              this.$router.push({path:'/oms/orderSubmit',query:{id:'1'}})
+              // this.updatePublishStatus(1,ids);
               break;
             case this.operates[1].value:
               this.updatePublishStatus(0,ids);

@@ -143,6 +143,13 @@ export const asyncRouterMap = [
         meta: {title: '销售列表', icon: 'product-list'}
       },
       {
+        path: 'orderSubmit',
+        name: 'orderSubmit',
+        component: () => import('@/views/oms/order/orderSubmit'),
+        meta: {title: '订单详情'},
+        hidden:true
+      },
+      {
         path: 'orderDetail',
         name: 'orderDetail',
         component: () => import('@/views/oms/order/orderDetail'),
